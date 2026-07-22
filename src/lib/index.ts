@@ -64,6 +64,11 @@ export {
 	type CreateParticipantsOptions
 } from './state/createParticipants.svelte.js';
 export {
+	createParticipantPermissions,
+	type ParticipantPermissions
+} from './state/createParticipantPermissions.svelte.js';
+export { createLocalParticipantPermissions } from './state/createLocalParticipantPermissions.svelte.js';
+export {
 	createTrackMutedIndicator,
 	type TrackMutedIndicatorState
 } from './state/createTrackMutedIndicator.svelte.js';
