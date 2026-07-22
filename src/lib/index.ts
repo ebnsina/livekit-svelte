@@ -35,6 +35,12 @@ export {
 	type WidgetContextType
 } from './context/chat-context.js';
 export { setFeatureContext, getFeatureContext, type FeatureFlags } from './context/feature-context.js';
+export {
+	setSessionContext,
+	getSessionContext,
+	getMaybeSessionContext,
+	ensureSession
+} from './context/session-context.svelte.js';
 
 // State factories (reactive helpers built on the core observables)
 export { createLiveKitRoom, type LiveKitRoomState } from './state/createLiveKitRoom.svelte.js';
@@ -175,6 +181,70 @@ export {
 // Chat factories
 export { createChat, type CreateChatOptions, type ChatState } from './state/createChat.svelte.js';
 export { createChatToggle, type ChatToggleState } from './state/createChatToggle.svelte.js';
+// Advanced: agent / session / transcription factories
+export { createVoiceAssistant, type VoiceAssistant } from './state/createVoiceAssistant.svelte.js';
+export {
+	createTrackTranscription,
+	type TrackTranscriptionOptions,
+	type TrackTranscriptionState
+} from './state/createTrackTranscription.svelte.js';
+export {
+	createTextStream,
+	type CreateTextStreamOptions,
+	type TextStreamState
+} from './state/createTextStream.svelte.js';
+export {
+	createTranscriptions,
+	type CreateTranscriptionsOptions,
+	type TranscriptionsState
+} from './state/createTranscriptions.svelte.js';
+export {
+	createAgent,
+	createAgentTimeoutIdStore,
+	Emitter,
+	AgentEvent,
+	type AgentCallbacks,
+	type AgentTimeoutIdStore,
+	type EventMap,
+	type SessionStub,
+	type TypedEmitter,
+	type UseAgentReturn,
+	type AgentState as SessionAgentState
+} from './state/createAgent.svelte.js';
+export {
+	createSession,
+	isUseSessionReturn,
+	SessionEvent,
+	type SessionCallbacks,
+	type SessionConnectOptions,
+	type SwitchActiveDeviceOptions,
+	type CreateSessionConfigurableOptions,
+	type CreateSessionFixedOptions,
+	type UseSessionReturn
+} from './state/createSession.svelte.js';
+export {
+	createSessionMessages,
+	MessagesEvent,
+	type MessagesCallbacks,
+	type SessionMessagesState
+} from './state/createSessionMessages.svelte.js';
+export {
+	createRpc,
+	type RpcHandler,
+	type RpcCallParams,
+	type CreateRpcOptions,
+	type RpcPerformFn,
+	type RpcState
+} from './state/createRpc.svelte.js';
+export {
+	createEvents,
+	type EventEmitterLike,
+	type WithInternalEmitter
+} from './state/createEvents.svelte.js';
+export {
+	createSequentialRoomConnectDisconnect,
+	type SequentialRoomConnectDisconnectState
+} from './state/createSequentialRoomConnectDisconnect.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -201,6 +271,7 @@ export { default as SettingsMenuToggle } from './components/SettingsMenuToggle.s
 export { default as StartAudio } from './components/StartAudio.svelte';
 export { default as StartMediaButton } from './components/StartMediaButton.svelte';
 export { default as ChatToggle } from './components/ChatToggle.svelte';
+export { default as SessionProvider } from './components/SessionProvider.svelte';
 export { default as TrackLoop } from './components/TrackLoop.svelte';
 export { default as TrackRefContextProvider } from './components/TrackRefContextProvider.svelte';
 export { default as ParticipantLoop } from './components/ParticipantLoop.svelte';
@@ -229,6 +300,10 @@ export { default as ControlBar, type ControlBarControls } from './prefabs/Contro
 export { default as VideoConference } from './prefabs/VideoConference.svelte';
 export { default as PreJoin } from './prefabs/PreJoin.svelte';
 export { default as AudioConference } from './prefabs/AudioConference.svelte';
+export {
+	default as VoiceAssistantControlBar,
+	type VoiceAssistantControlBarControls
+} from './prefabs/VoiceAssistantControlBar.svelte';
 
 // Icons
 export { icons, getSourceIcon } from './icons/index.js';
