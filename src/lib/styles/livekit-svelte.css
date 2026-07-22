@@ -1,31 +1,108 @@
 /**
- * livekit-svelte theme tokens.
+ * livekit-svelte design system.
  *
  * Import this once in your app (or import "@ebnsina/livekit-svelte/styles.css").
- * Tokens are exposed as CSS custom properties AND registered with Tailwind v4 via
- * `@theme`, so you can retheme by overriding any `--lk-*` variable.
+ * Every token is exposed as a CSS custom property AND registered with Tailwind v4
+ * via `@theme`, so you can retheme by overriding any `--lk-*` variable.
+ *
+ * Design language: dark-first, refined "modern SaaS video app". Svelte orange
+ * (#FF3E00) is the single deliberate accent — used for primary actions, focus
+ * rings, active toggles and highlights. Everything else is a calm neutral scale.
+ *
+ * Fonts are registered as families here (`--font-sans` = Mona Sans,
+ * `--font-mono` = IBM Plex Mono) but the actual @font-face data is loaded by the
+ * consuming app (see the harness `layout.css`), so the library stays lightweight
+ * and gracefully falls back to system fonts when the webfonts aren't present.
  */
 @theme {
-	--color-lk-bg: #111112;
-	--color-lk-bg-2: #1e1e1e;
-	--color-lk-fg: #ffffff;
-	--color-lk-fg-secondary: #d8d8d8;
-	--color-lk-border: #2f2f2f;
-	--color-lk-accent: #1f8cf9;
-	--color-lk-accent-fg: #ffffff;
-	--color-lk-danger: #f91f31;
-	--color-lk-danger-fg: #ffffff;
-	--color-lk-success: #1ff968;
-	--color-lk-control-bg: #1e1e1e;
-	--color-lk-control-hover: #2f2f2f;
+	/* ---- Typography -------------------------------------------------------- */
+	--font-sans:
+		'Mona Sans Variable', ui-sans-serif, system-ui, -apple-system,
+		'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	--font-mono:
+		'IBM Plex Mono', ui-monospace, 'SF Mono', 'SFMono-Regular', Menlo,
+		Consolas, monospace;
 
-	--radius-lk: 0.5rem;
-	--spacing-lk-gap: 0.5rem;
+	/* ---- Neutral surfaces & text ------------------------------------------ */
+	--color-lk-bg: #0a0a0b; /* app background (near-black) */
+	--color-lk-bg-2: #131316; /* base surface / cards */
+	--color-lk-bg-3: #1b1b20; /* elevated surface / popovers */
+	--color-lk-fg: #f4f4f5; /* primary text */
+	--color-lk-fg-secondary: #9c9ca6; /* muted / secondary text */
+	--color-lk-fg-muted: #6b6b74; /* faint text / placeholders */
+	--color-lk-border: #27272c; /* hairline borders */
+	--color-lk-border-strong: #38383f; /* emphasized borders */
+
+	/* ---- Accent (Svelte orange) ------------------------------------------- */
+	--color-lk-accent: #ff3e00;
+	--color-lk-accent-hover: #ff5527;
+	--color-lk-accent-active: #db3400;
+	--color-lk-accent-subtle: rgb(255 62 0 / 0.12); /* tinted fills */
+	--color-lk-accent-ring: rgb(255 62 0 / 0.55); /* focus ring */
+	--color-lk-accent-fg: #ffffff; /* text/icon on accent */
+
+	/* ---- Status ----------------------------------------------------------- */
+	--color-lk-danger: #f5384e;
+	--color-lk-danger-hover: #ff4d61;
+	--color-lk-danger-fg: #ffffff;
+	--color-lk-success: #34d399;
+	--color-lk-warning: #f5b942;
+
+	/* ---- Controls --------------------------------------------------------- */
+	--color-lk-control-bg: #1b1b20;
+	--color-lk-control-hover: #27272c;
+
+	/* ---- Radii ------------------------------------------------------------ */
+	--radius-lk-sm: 0.5rem;
+	--radius-lk: 0.75rem;
+	--radius-lk-lg: 1rem;
+	--radius-lk-xl: 1.5rem;
+
+	/* ---- Spacing ---------------------------------------------------------- */
+	--spacing-lk-gap: 0.75rem;
+
+	/* ---- Elevation -------------------------------------------------------- */
+	--shadow-lk-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+	--shadow-lk: 0 4px 16px -4px rgb(0 0 0 / 0.5);
+	--shadow-lk-md: 0 8px 28px -6px rgb(0 0 0 / 0.55);
+	--shadow-lk-lg: 0 20px 48px -12px rgb(0 0 0 / 0.65);
+	--shadow-lk-accent: 0 8px 24px -8px rgb(255 62 0 / 0.5);
 }
 
+/**
+ * Legacy / direct-access aliases.
+ *
+ * Some components read design tokens straight off `var(--lk-*)` rather than
+ * through Tailwind utilities. Keep the full set exposed and pointed at their
+ * `--color-lk-*` / `--radius-lk` / `--spacing-lk-gap` sources so the naming
+ * contract stays stable.
+ */
 :root {
 	--lk-bg: var(--color-lk-bg);
+	--lk-bg-2: var(--color-lk-bg-2);
+	--lk-bg-3: var(--color-lk-bg-3);
 	--lk-fg: var(--color-lk-fg);
+	--lk-fg-secondary: var(--color-lk-fg-secondary);
+	--lk-fg-muted: var(--color-lk-fg-muted);
+	--lk-border: var(--color-lk-border);
+	--lk-border-strong: var(--color-lk-border-strong);
+
 	--lk-accent: var(--color-lk-accent);
+	--lk-accent-hover: var(--color-lk-accent-hover);
+	--lk-accent-active: var(--color-lk-accent-active);
+	--lk-accent-subtle: var(--color-lk-accent-subtle);
+	--lk-accent-ring: var(--color-lk-accent-ring);
+	--lk-accent-fg: var(--color-lk-accent-fg);
+
 	--lk-danger: var(--color-lk-danger);
+	--lk-danger-hover: var(--color-lk-danger-hover);
+	--lk-danger-fg: var(--color-lk-danger-fg);
+	--lk-success: var(--color-lk-success);
+	--lk-warning: var(--color-lk-warning);
+
+	--lk-control-bg: var(--color-lk-control-bg);
+	--lk-control-hover: var(--color-lk-control-hover);
+
+	--lk-radius: var(--radius-lk);
+	--lk-gap: var(--spacing-lk-gap);
 }

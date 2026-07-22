@@ -8,7 +8,13 @@
 		"type": "git",
 		"url": "git+ssh://git@github-es/ebnsina/livekit-svelte.git"
 	},
-	"keywords": ["livekit", "svelte", "webrtc", "video", "components"],
+	"keywords": [
+		"livekit",
+		"svelte",
+		"webrtc",
+		"video",
+		"components"
+	],
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -21,8 +27,14 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run"
 	},
-	"files": ["dist", "!dist/**/*.test.*", "!dist/**/*.spec.*"],
-	"sideEffects": ["**/*.css"],
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"exports": {
@@ -43,6 +55,8 @@
 		"rxjs": "^7.8.2"
 	},
 	"devDependencies": {
+		"@fontsource-variable/mona-sans": "5.3.0",
+		"@fontsource/ibm-plex-mono": "5.3.0",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/package": "^2.5.8",

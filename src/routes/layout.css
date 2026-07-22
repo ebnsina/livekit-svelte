@@ -1,5 +1,27 @@
 @import 'tailwindcss';
+
+/* Self-hosted webfonts (Mona Sans + IBM Plex Mono) — bundled, no CDN. */
+@import '../lib/styles/fonts.css';
+
+/* Design-system tokens (theme colors, radii, shadows, font families). */
 @import '../lib/styles/livekit-svelte.css';
 
 /* Detect classes used by library components while developing in this repo. */
 @source '../lib';
+
+/* Make Mona Sans the default UI font and refine base rendering. */
+@layer base {
+	html {
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+		background-color: var(--color-lk-bg);
+		color: var(--color-lk-fg);
+		color-scheme: dark;
+	}
+
+	body {
+		font-family: var(--font-sans);
+	}
+}
