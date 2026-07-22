@@ -32,6 +32,11 @@ export {
 	type CreateTracksReturnType
 } from './state/createTracks.svelte.js';
 export { createMediaTrack, type MediaTrackState } from './state/createMediaTrack.svelte.js';
+export {
+	createDisconnectButton,
+	type CreateDisconnectButtonProps,
+	type DisconnectButtonState
+} from './state/createDisconnectButton.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -42,6 +47,7 @@ export { default as ParticipantName } from './components/ParticipantName.svelte'
 export { default as VideoTrack } from './components/VideoTrack.svelte';
 export { default as AudioTrack } from './components/AudioTrack.svelte';
 export { default as RoomAudioRenderer } from './components/RoomAudioRenderer.svelte';
+export { default as DisconnectButton } from './components/DisconnectButton.svelte';
 export { default as TrackLoop } from './components/TrackLoop.svelte';
 export { default as TrackRefContextProvider } from './components/TrackRefContextProvider.svelte';
 
