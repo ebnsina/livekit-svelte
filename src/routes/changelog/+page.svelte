@@ -88,7 +88,8 @@
 					changes: [
 						'Svelte 5 runes binding layer over @livekit/components-core',
 						'RxJS observable to rune adapter with automatic subscription cleanup',
-						'SSR-safe rendering and full TypeScript types for every export'
+						'SSR-safe rendering and full TypeScript types for every export',
+						'LiveKit runtime pinned to exact tested versions (livekit-client 2.20.2, components-core 0.12.14)'
 					]
 				}
 			]

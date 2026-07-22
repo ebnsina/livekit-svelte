@@ -156,6 +156,18 @@ pnpm add -D svelte tailwindcss`;
 			<code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm">@livekit/components-core</code>,
 			and the Lucide icon set are pulled in automatically.
 		</p>
+		<div class="mt-4 rounded-lk border border-lk-warning/40 bg-lk-warning/5 p-4">
+			<p class="text-sm leading-relaxed text-lk-fg-secondary">
+				<span class="font-semibold text-lk-fg">Version pinning.</span> This is an unofficial port, so
+				the LiveKit runtime is pinned to exact, tested versions —
+				<code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm">livekit-client@2.20.2</code>
+				and
+				<code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm"
+					>@livekit/components-core@0.12.14</code
+				>. Newer LiveKit releases can change APIs the bindings rely on; each bump is verified
+				before the pin is raised, so you always get a known-working combination.
+			</p>
+		</div>
 	</section>
 
 	<!-- Tailwind -->
