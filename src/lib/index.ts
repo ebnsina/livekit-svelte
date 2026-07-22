@@ -71,6 +71,14 @@ export {
 	createConnectionQualityIndicator,
 	type ConnectionQualityIndicatorState
 } from './state/createConnectionQualityIndicator.svelte.js';
+export { createIsMuted } from './state/createIsMuted.svelte.js';
+export { createIsSpeaking } from './state/createIsSpeaking.svelte.js';
+export { facingMode, type FacingMode } from './state/facingMode.js';
+export {
+	createParticipantTile,
+	type CreateParticipantTileOptions,
+	type ParticipantTileState
+} from './state/createParticipantTile.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -80,6 +88,9 @@ export { default as RoomName } from './components/RoomName.svelte';
 export { default as ParticipantName } from './components/ParticipantName.svelte';
 export { default as TrackMutedIndicator } from './components/TrackMutedIndicator.svelte';
 export { default as ConnectionQualityIndicator } from './components/ConnectionQualityIndicator.svelte';
+export { default as ParticipantTile } from './components/ParticipantTile.svelte';
+export { default as ParticipantContextIfNeeded } from './components/ParticipantContextIfNeeded.svelte';
+export { default as TrackRefContextIfNeeded } from './components/TrackRefContextIfNeeded.svelte';
 export { default as VideoTrack } from './components/VideoTrack.svelte';
 export { default as AudioTrack } from './components/AudioTrack.svelte';
 export { default as RoomAudioRenderer } from './components/RoomAudioRenderer.svelte';
