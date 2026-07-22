@@ -1,0 +1,31 @@
+/**
+ * livekit-svelte theme tokens.
+ *
+ * Import this once in your app (or import "@ebnsina/livekit-svelte/styles.css").
+ * Tokens are exposed as CSS custom properties AND registered with Tailwind v4 via
+ * `@theme`, so you can retheme by overriding any `--lk-*` variable.
+ */
+@theme {
+	--color-lk-bg: #111112;
+	--color-lk-bg-2: #1e1e1e;
+	--color-lk-fg: #ffffff;
+	--color-lk-fg-secondary: #d8d8d8;
+	--color-lk-border: #2f2f2f;
+	--color-lk-accent: #1f8cf9;
+	--color-lk-accent-fg: #ffffff;
+	--color-lk-danger: #f91f31;
+	--color-lk-danger-fg: #ffffff;
+	--color-lk-success: #1ff968;
+	--color-lk-control-bg: #1e1e1e;
+	--color-lk-control-hover: #2f2f2f;
+
+	--radius-lk: 0.5rem;
+	--spacing-lk-gap: 0.5rem;
+}
+
+:root {
+	--lk-bg: var(--color-lk-bg);
+	--lk-fg: var(--color-lk-fg);
+	--lk-accent: var(--color-lk-accent);
+	--lk-danger: var(--color-lk-danger);
+}

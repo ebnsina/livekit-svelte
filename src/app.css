@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+@import './lib/styles/livekit-svelte.css';
+
+/* Detect classes used by library components while developing in this repo. */
+@source './lib';
