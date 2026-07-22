@@ -28,6 +28,12 @@ pnpm add -D svelte tailwindcss
 
 `livekit-client`, `@livekit/components-core`, `@lucide/svelte`, and `rxjs` are pulled in automatically.
 
+> [!IMPORTANT]
+> This is an unofficial port, so the LiveKit runtime is **pinned to exact, tested versions** —
+> `livekit-client@2.20.2` and `@livekit/components-core@0.12.14`. Newer LiveKit releases can change
+> APIs the bindings rely on; each bump is verified before the pin is raised, so you always get a
+> combination that is known to work.
+
 ## Quick start
 
 You need a LiveKit server URL and an access token (mint tokens on your server — never ship your API secret to the browser).
