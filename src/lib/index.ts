@@ -26,6 +26,11 @@ export { createLiveKitRoom, type LiveKitRoomState } from './state/createLiveKitR
 export { createConnectionState } from './state/createConnectionState.svelte.js';
 export { createRoomInfo, type RoomInfo } from './state/createRoomInfo.svelte.js';
 export { createParticipantInfo, type ParticipantInfo } from './state/createParticipantInfo.svelte.js';
+export {
+	createTracks,
+	type CreateTracksOptions,
+	type CreateTracksReturnType
+} from './state/createTracks.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
