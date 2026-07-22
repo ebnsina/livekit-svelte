@@ -90,12 +90,20 @@ Because `.subscribe()` on an RxJS observable returns a `Subscription` (not a bar
 
 ## Roadmap
 
+Implemented:
+
 - [x] **Foundation** — package scaffold, Tailwind, `observableState`, room context, `LiveKitRoom`
-- [ ] **Tracks & participants** — `createTracks`, `createParticipants`, `VideoTrack`, `AudioTrack`, `ParticipantTile`, `ParticipantName`, `RoomAudioRenderer`
-- [ ] **Controls & layout** — `TrackToggle`, `DisconnectButton`, `MediaDeviceSelect`/`Menu`, `ControlBar`, grid/focus layouts
-- [ ] **Prefabs** — `VideoConference`, `PreJoin`, `AudioConference`
-- [ ] **Chat & data** — `Chat`, `ChatEntry`, `createChat`, `createDataChannel`
-- [ ] **Agents & advanced** — `createVoiceAssistant`, `BarVisualizer`, transcriptions, `createRpc`, sessions
+- [x] **Tracks & participants** — `createTracks`, `createParticipants`, `VideoTrack`, `AudioTrack`, `ParticipantTile`, `ParticipantName`, `RoomAudioRenderer`
+- [x] **Controls & layout** — `TrackToggle`, `DisconnectButton`, `MediaDeviceSelect`/`Menu`, `ControlBar`, grid/focus/carousel layouts
+- [x] **Prefabs** — `VideoConference`, `PreJoin`, `AudioConference`
+- [x] **Chat & data** — `Chat`, `ChatEntry`, `createChat`, `createDataChannel`
+- [x] **Agents & advanced** — `createVoiceAssistant`, `BarVisualizer`, transcriptions, `createRpc`, sessions
+
+Planned:
+
+- [ ] Unit and component test coverage
+- [ ] API reference documentation for every component and factory
+- [ ] First tagged release to npm
 
 ## Development
 
