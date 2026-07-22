@@ -11,10 +11,12 @@ export {
 
 // State factories (reactive helpers built on the core observables)
 export { createLiveKitRoom, type LiveKitRoomState } from './state/createLiveKitRoom.svelte.js';
+export { createConnectionState } from './state/createConnectionState.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
 export type { LiveKitRoomProps } from './components/LiveKitRoom.types.js';
+export { default as ConnectionState } from './components/ConnectionState.svelte';
 
 // Re-exports from the framework-agnostic core
 export { setLogLevel, setLogExtension, isTrackReference } from '@livekit/components-core';
