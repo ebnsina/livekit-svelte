@@ -9,12 +9,12 @@ It builds on LiveKit's official [`@livekit/components-core`](https://www.npmjs.c
 
 ## Features
 
-- 🎯 **Svelte 5 native** — built on runes (`$state`/`$effect`), snippets, and context.
-- ♻️ **Powered by LiveKit core** — built on `@livekit/components-core`, so behavior tracks LiveKit itself.
-- 🎨 **Tailwind CSS v4** styling with themeable `--lk-*` design tokens.
-- 🧩 **Standard DOM contract** — components emit `data-lk-*` attributes, so LiveKit theming carries over.
-- 🛡️ **Graceful error handling** — connection, token, media‑device, and stream errors are surfaced, never thrown into your app.
-- 🔤 **Fully typed** — ships `.d.ts` for every export.
+- **Svelte 5 native** — built on runes (`$state`/`$effect`), snippets, and context.
+- **Powered by LiveKit core** — built on `@livekit/components-core`, so behavior tracks LiveKit itself.
+- **Tailwind CSS v4** styling with themeable `--lk-*` design tokens.
+- **Standard DOM contract** — components emit `data-lk-*` attributes, so LiveKit theming carries over.
+- **Graceful error handling** — connection, token, media-device, and stream errors are surfaced, never thrown into your app.
+- **Fully typed** — ships `.d.ts` for every export.
 
 ## Installation
 
@@ -83,7 +83,7 @@ Retheme by overriding any token, e.g.:
 | Concern            | Implementation                                                  |
 | ------------------ | --------------------------------------------------------------- |
 | Sharing the room   | `setContext`/`getContext` helpers (`context/`)                  |
-| Observable → state | `observableState(obs, startWith)` — RxJS → rune (`reactivity/`) |
+| Observable -> state | `observableState(obs, startWith)` — RxJS -> rune (`reactivity/`) |
 | Stateful helpers   | `createXxx` factories (`state/`)                                |
 | UI                 | `.svelte` components and prefabs (`components/`, `prefabs/`)     |
 

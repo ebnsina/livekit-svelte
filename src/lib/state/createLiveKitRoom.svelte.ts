@@ -46,7 +46,7 @@ export function createLiveKitRoom(getProps: () => LiveKitRoomProps): LiveKitRoom
 		}
 	});
 
-	// Wire room event handlers → prop callbacks, and publish local tracks on signal connect.
+	// Wire room event handlers -> prop callbacks, and publish local tracks on signal connect.
 	$effect(() => {
 		const r = room;
 		if (!r) return;
