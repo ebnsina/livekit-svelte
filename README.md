@@ -58,15 +58,12 @@ You need a LiveKit server URL and an access token (mint tokens on your server â€
 
 ## Tailwind setup
 
-The library is styled with Tailwind v4 utilities plus `--lk-*` theme tokens. Import the stylesheet once and point Tailwind at the package so its classes are detected:
+The library is styled with Tailwind v4 utilities plus `--lk-*` theme tokens. Add two imports to your global stylesheet â€” the theme registers its own design tokens and component sources, so there is no separate `@source` step:
 
 ```css
 /* app.css */
 @import 'tailwindcss';
 @import '@ebnsina/livekit-svelte/styles.css';
-
-/* let Tailwind scan the library's components */
-@source '../node_modules/@ebnsina/livekit-svelte/dist';
 ```
 
 Retheme by overriding any token, e.g.:
