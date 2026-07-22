@@ -1,11 +1,13 @@
 # @ebnsina/livekit-svelte
 
+![Svelte 5](https://img.shields.io/badge/Svelte-5-FF3E00) ![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4-38BDF8) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6) ![License: MIT](https://img.shields.io/badge/License-MIT-green)
+
 LiveKit components for **Svelte 5** — components, state helpers, and prefabs for building realtime video, audio, and agent experiences.
 
 It builds on LiveKit's official [`@livekit/components-core`](https://www.npmjs.com/package/@livekit/components-core) (state logic exposed as RxJS observables) and [`livekit-client`](https://www.npmjs.com/package/livekit-client), exposing them through idiomatic Svelte 5 runes, context, and snippets.
 
 > [!NOTE]
-> **Status: early / in development.** The foundation and the `LiveKitRoom` root are in place and verified; more components, state factories, and prefabs land phase by phase. See the [roadmap](#roadmap).
+> **Status: in development.** The full component, state-factory, and prefab surface is in place (rooms, tracks, participants, controls, layouts, chat, visualizers, and the `VideoConference`/`PreJoin`/`AudioConference` prefabs). APIs may still change before a tagged release. See the [roadmap](#roadmap).
 
 ## Features
 
