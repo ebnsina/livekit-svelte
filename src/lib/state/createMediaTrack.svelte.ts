@@ -4,11 +4,12 @@ import {
 	setupMediaTrack,
 	type TrackReferenceOrPlaceholder
 } from '@livekit/components-core';
-import type { TrackPublication } from 'livekit-client';
+import type { Track, TrackPublication } from 'livekit-client';
 
 /** Reactive state and element props for rendering a single media track. */
 export interface MediaTrackState {
 	readonly publication: TrackPublication | undefined;
+	readonly track: Track | undefined;
 	readonly isMuted: boolean | undefined;
 	readonly isSubscribed: boolean | undefined;
 	/** Class name provided by the core setup helper. */
@@ -70,6 +71,9 @@ export function createMediaTrack(
 	return {
 		get publication() {
 			return publication;
+		},
+		get track() {
+			return track;
 		},
 		get isMuted() {
 			return isMuted;
