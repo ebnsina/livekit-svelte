@@ -1,20 +1,26 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { page } from '$app/state';
 
 	const links = [
-		{ href: '/', label: 'Demo' },
-		{ href: '/docs', label: 'Docs' },
-		{ href: '/changelog', label: 'Changelog' }
+		{ href: `${base}/`, label: 'Demo' },
+		{ href: `${base}/docs`, label: 'Docs' },
+		{ href: `${base}/changelog`, label: 'Changelog' }
 	];
 
-	const current = $derived(page.url.pathname);
+	// Normalize a trailing slash so the home link matches `${base}/` and `${base}`.
+	const current = $derived(page.url.pathname.replace(/\/$/, '') || '/');
+
+	function isActive(href: string) {
+		return (href.replace(/\/$/, '') || '/') === current;
+	}
 </script>
 
 <header
 	class="sticky top-0 z-40 border-b border-lk-border/80 bg-lk-bg/70 backdrop-blur-xl"
 >
 	<nav class="mx-auto flex max-w-5xl items-center gap-4 px-4 py-3 sm:px-6">
-		<a href="/" class="flex items-center gap-2.5">
+		<a href="{base}/" class="flex items-center gap-2.5">
 			<span
 				class="flex size-7 items-center justify-center rounded-lk-sm bg-lk-accent text-sm font-bold text-lk-accent-fg shadow-lk-accent"
 			>
@@ -26,8 +32,8 @@
 			{#each links as link (link.href)}
 				<a
 					href={link.href}
-					aria-current={current === link.href ? 'page' : undefined}
-					class="rounded-lk-sm px-3 py-1.5 text-sm transition {current === link.href
+					aria-current={isActive(link.href) ? 'page' : undefined}
+					class="rounded-lk-sm px-3 py-1.5 text-sm transition {isActive(link.href)
 						? 'bg-lk-control-bg text-lk-fg'
 						: 'text-lk-fg-secondary hover:bg-lk-control-hover hover:text-lk-fg'}"
 				>
