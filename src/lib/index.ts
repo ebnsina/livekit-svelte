@@ -108,6 +108,7 @@ export {
 } from './state/createPersistentUserChoices.svelte.js';
 export { createSettingsToggle, type SettingsToggleState } from './state/createSettingsToggle.svelte.js';
 export { createMediaQuery } from './state/createMediaQuery.svelte.js';
+export { createPreviewTracks, type PreviewTracksState } from './state/createPreviewTracks.svelte.js';
 // Participant / track data factories
 export {
 	createRemoteParticipant,
@@ -225,6 +226,9 @@ export { default as ConnectionStateToast } from './components/ConnectionStateToa
 // Prefabs
 export { default as Chat } from './prefabs/Chat.svelte';
 export { default as ControlBar, type ControlBarControls } from './prefabs/ControlBar.svelte';
+export { default as VideoConference } from './prefabs/VideoConference.svelte';
+export { default as PreJoin } from './prefabs/PreJoin.svelte';
+export { default as AudioConference } from './prefabs/AudioConference.svelte';
 
 // Icons
 export { icons, getSourceIcon } from './icons/index.js';
