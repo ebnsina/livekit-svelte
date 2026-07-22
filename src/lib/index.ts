@@ -107,6 +107,72 @@ export {
 	type PersistentUserChoicesState
 } from './state/createPersistentUserChoices.svelte.js';
 export { createSettingsToggle, type SettingsToggleState } from './state/createSettingsToggle.svelte.js';
+// Participant / track data factories
+export {
+	createRemoteParticipant,
+	type CreateRemoteParticipantOptions
+} from './state/createRemoteParticipant.svelte.js';
+export {
+	createSpeakingParticipants,
+	type CreateSpeakingParticipantsOptions
+} from './state/createSpeakingParticipants.svelte.js';
+export { createSortedParticipants } from './state/createSortedParticipants.svelte.js';
+export {
+	createParticipantTracks,
+	type CreateParticipantTracksOptions
+} from './state/createParticipantTracks.svelte.js';
+export { createTrackByName } from './state/createTrackByName.svelte.js';
+export {
+	createParticipantAttributes,
+	createParticipantAttribute,
+	type CreateParticipantAttributesOptions,
+	type ParticipantAttributes
+} from './state/createParticipantAttributes.svelte.js';
+export { createIsEncrypted, type CreateIsEncryptedOptions } from './state/createIsEncrypted.svelte.js';
+export { createIsRecording } from './state/createIsRecording.svelte.js';
+export { createToken, type UserInfo, type CreateTokenOptions } from './state/createToken.svelte.js';
+export { createDataChannel, type DataChannelState } from './state/createDataChannel.svelte.js';
+// Layout factories
+export { createPagination, type PaginationState } from './state/createPagination.svelte.js';
+export {
+	createVisualStableUpdate,
+	type VisualStableUpdateState,
+	type VisualStableUpdateOptions
+} from './state/createVisualStableUpdate.svelte.js';
+export {
+	createGridLayout,
+	type GridLayoutState,
+	type CreateGridLayoutOptions
+} from './state/createGridLayout.svelte.js';
+export { createPinnedTracks, type PinnedTracksState } from './state/createPinnedTracks.svelte.js';
+export { createSwipe, type SwipeOptions } from './state/createSwipe.svelte.js';
+// Audio / visualizer factories
+export {
+	createTrackVolume,
+	createMultibandTrackVolume,
+	type TrackVolumeState,
+	type MultibandTrackVolumeState,
+	type MultiBandTrackVolumeOptions
+} from './state/createTrackVolume.svelte.js';
+export { createAudioPlayback, type AudioPlaybackState } from './state/createAudioPlayback.svelte.js';
+export {
+	createStartAudio,
+	type CreateStartAudioProps,
+	type StartAudioState
+} from './state/createStartAudio.svelte.js';
+export {
+	createStartVideo,
+	type CreateStartVideoProps,
+	type StartVideoState
+} from './state/createStartVideo.svelte.js';
+export {
+	createBarAnimator,
+	type BarAnimatorState,
+	type AgentState
+} from './state/createBarAnimator.svelte.js';
+// Chat factories
+export { createChat, type CreateChatOptions, type ChatState } from './state/createChat.svelte.js';
+export { createChatToggle, type ChatToggleState } from './state/createChatToggle.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -130,13 +196,36 @@ export { default as MediaDeviceMenu } from './components/MediaDeviceMenu.svelte'
 export { default as FocusToggle } from './components/FocusToggle.svelte';
 export { default as ClearPinButton } from './components/ClearPinButton.svelte';
 export { default as SettingsMenuToggle } from './components/SettingsMenuToggle.svelte';
-
-// Icons
-export { icons, getSourceIcon } from './icons/index.js';
+export { default as StartAudio } from './components/StartAudio.svelte';
+export { default as StartMediaButton } from './components/StartMediaButton.svelte';
+export { default as ChatToggle } from './components/ChatToggle.svelte';
 export { default as TrackLoop } from './components/TrackLoop.svelte';
 export { default as TrackRefContextProvider } from './components/TrackRefContextProvider.svelte';
 export { default as ParticipantLoop } from './components/ParticipantLoop.svelte';
 export { default as ParticipantContextProvider } from './components/ParticipantContextProvider.svelte';
+// Layout components
+export { default as GridLayout } from './components/GridLayout.svelte';
+export { default as FocusLayout } from './components/FocusLayout.svelte';
+export { default as FocusLayoutContainer } from './components/FocusLayoutContainer.svelte';
+export { default as CarouselLayout } from './components/CarouselLayout.svelte';
+// Visualizers / audio tiles
+export { default as AudioVisualizer } from './components/AudioVisualizer.svelte';
+export { default as BarVisualizer } from './components/BarVisualizer.svelte';
+export { default as ParticipantAudioTile } from './components/ParticipantAudioTile.svelte';
+// Chat / toasts
+export {
+	default as ChatEntry,
+	formatChatMessageLinks,
+	type MessageFormatter
+} from './components/ChatEntry.svelte';
+export { default as Toast } from './components/Toast.svelte';
+export { default as ConnectionStateToast } from './components/ConnectionStateToast.svelte';
+
+// Prefabs
+export { default as Chat } from './prefabs/Chat.svelte';
+
+// Icons
+export { icons, getSourceIcon } from './icons/index.js';
 
 // Re-exports from the framework-agnostic core
 export { setLogLevel, setLogExtension, isTrackReference } from '@livekit/components-core';
