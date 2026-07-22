@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { Track } from 'livekit-client';
-	import { createTracks, TrackLoop, VideoTrack, ParticipantName } from '$lib/index.js';
+	import {
+		createTracks,
+		TrackLoop,
+		VideoTrack,
+		ParticipantName,
+		TrackToggle,
+		DisconnectButton,
+		RoomAudioRenderer
+	} from '$lib/index.js';
 
 	// Camera + screen share, with placeholders for participants without a camera track.
 	const tracks = createTracks(
@@ -24,3 +32,25 @@
 		{/snippet}
 	</TrackLoop>
 </div>
+
+<div class="mt-4 flex items-center gap-2">
+	<TrackToggle
+		source={Track.Source.Microphone}
+		class="flex items-center gap-1 rounded-lk bg-lk-control-bg px-3 py-2 hover:bg-lk-control-hover"
+	/>
+	<TrackToggle
+		source={Track.Source.Camera}
+		class="flex items-center gap-1 rounded-lk bg-lk-control-bg px-3 py-2 hover:bg-lk-control-hover"
+	/>
+	<TrackToggle
+		source={Track.Source.ScreenShare}
+		class="flex items-center gap-1 rounded-lk bg-lk-control-bg px-3 py-2 hover:bg-lk-control-hover"
+	/>
+	<DisconnectButton
+		class="ml-auto rounded-lk bg-lk-danger px-3 py-2 text-lk-danger-fg disabled:opacity-50"
+	>
+		Leave
+	</DisconnectButton>
+</div>
+
+<RoomAudioRenderer />
