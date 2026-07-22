@@ -2,6 +2,7 @@
 	import { LiveKitRoom, ConnectionState, RoomName } from '$lib/index.js';
 	import DocsNav from './DocsNav.svelte';
 	import Stage from './Stage.svelte';
+	import { generateDevToken } from './devToken.js';
 
 	let serverUrl = $state('');
 	let token = $state('');
@@ -14,6 +15,29 @@
 	function join() {
 		status = 'connecting';
 		connect = true;
+	}
+
+	// --- In-browser token generator (dev only) ---
+	let apiKey = $state('');
+	let apiSecret = $state('');
+	let room = $state('demo');
+	let identity = $state('me');
+	let generating = $state(false);
+	let genError = $state('');
+
+	const genInput =
+		'w-full rounded-lk border border-lk-border bg-lk-bg px-3 py-2 font-mono text-sm text-lk-fg transition placeholder:text-lk-fg-muted focus-visible:border-lk-accent focus-visible:ring-2 focus-visible:ring-lk-accent-ring focus-visible:outline-none';
+
+	async function generate() {
+		genError = '';
+		generating = true;
+		try {
+			token = await generateDevToken({ apiKey, apiSecret, identity, room });
+		} catch (e) {
+			genError = e instanceof Error ? e.message : 'Failed to generate token';
+		} finally {
+			generating = false;
+		}
 	}
 </script>
 
@@ -145,6 +169,61 @@
 							bind:value={token}
 						></textarea>
 					</label>
+
+					<details class="rounded-lk border border-lk-border bg-lk-bg/40">
+						<summary
+							class="cursor-pointer px-3.5 py-2.5 text-sm text-lk-fg-secondary select-none"
+						>
+							No token? Generate one <span class="text-lk-fg-muted">(dev only)</span>
+						</summary>
+						<div class="flex flex-col gap-3 border-t border-lk-border px-3.5 py-3.5">
+							<p class="text-xs leading-relaxed text-lk-fg-muted">
+								Signs a token in your browser with the Web Crypto API — nothing is sent
+								anywhere. For local testing only; never ship your API secret in a real app.
+							</p>
+							<input
+								class={genInput}
+								placeholder="API key (APIxxxx)"
+								autocomplete="off"
+								spellcheck="false"
+								bind:value={apiKey}
+							/>
+							<input
+								type="password"
+								class={genInput}
+								placeholder="API secret"
+								autocomplete="off"
+								bind:value={apiSecret}
+							/>
+							<div class="grid grid-cols-2 gap-3">
+								<input
+									class={genInput}
+									placeholder="room"
+									autocomplete="off"
+									spellcheck="false"
+									bind:value={room}
+								/>
+								<input
+									class={genInput}
+									placeholder="identity"
+									autocomplete="off"
+									spellcheck="false"
+									bind:value={identity}
+								/>
+							</div>
+							<button
+								type="button"
+								class="rounded-lk border border-lk-border bg-lk-control-bg px-4 py-2 text-sm font-medium text-lk-fg transition hover:bg-lk-control-hover disabled:opacity-40"
+								onclick={generate}
+								disabled={!apiKey || !apiSecret || generating}
+							>
+								{generating ? 'Generating…' : 'Generate token'}
+							</button>
+							{#if genError}
+								<p class="text-xs text-lk-danger">{genError}</p>
+							{/if}
+						</div>
+					</details>
 
 					<button
 						class="mt-1 inline-flex items-center justify-center gap-2 rounded-lk bg-lk-accent px-4 py-2.5 text-sm font-semibold text-lk-accent-fg shadow-lk-accent transition hover:bg-lk-accent-hover active:bg-lk-accent-active focus-visible:ring-2 focus-visible:ring-lk-accent-ring focus-visible:ring-offset-2 focus-visible:ring-offset-lk-bg-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
