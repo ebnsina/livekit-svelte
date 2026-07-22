@@ -12,6 +12,7 @@
 	import { createParticipantTile } from '../state/createParticipantTile.svelte.js';
 	import AudioTrack from './AudioTrack.svelte';
 	import ConnectionQualityIndicator from './ConnectionQualityIndicator.svelte';
+	import FocusToggle from './FocusToggle.svelte';
 	import ParticipantContextIfNeeded from './ParticipantContextIfNeeded.svelte';
 	import ParticipantName from './ParticipantName.svelte';
 	import TrackMutedIndicator from './TrackMutedIndicator.svelte';
@@ -94,6 +95,7 @@
 					<ConnectionQualityIndicator class="lk-participant-metadata-item" />
 				</div>
 			{/if}
+			<FocusToggle trackRef={tr} />
 		</ParticipantContextIfNeeded>
 	</TrackRefContextIfNeeded>
 </div>
