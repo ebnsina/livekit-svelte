@@ -3,11 +3,9 @@
 /* Self-hosted webfonts (Mona Sans + IBM Plex Mono) — bundled, no CDN. */
 @import '../lib/styles/fonts.css';
 
-/* Design-system tokens (theme colors, radii, shadows, font families). */
+/* Design-system tokens + component source registration (theme colors, radii,
+   shadows, font families; the token file self-registers its @source). */
 @import '../lib/styles/livekit-svelte.css';
-
-/* Detect classes used by library components while developing in this repo. */
-@source '../lib';
 
 /* Make Mona Sans the default UI font and refine base rendering. */
 @layer base {

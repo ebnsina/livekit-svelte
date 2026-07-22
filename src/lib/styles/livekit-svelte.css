@@ -14,6 +14,13 @@
  * consuming app (see the harness `layout.css`), so the library stays lightweight
  * and gracefully falls back to system fonts when the webfonts aren't present.
  */
+/*
+ * Register this package's components as Tailwind sources, relative to this file.
+ * Because this lives inside the installed package, consumers only need to
+ * `@import "@ebnsina/livekit-svelte/styles.css"` — no manual `@source` step.
+ */
+@source '../**/*.{svelte,js}';
+
 @theme {
 	/* ---- Typography -------------------------------------------------------- */
 	--font-sans:

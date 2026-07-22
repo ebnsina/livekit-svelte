@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { LiveKitRoom, ConnectionState, RoomName } from '$lib/index.js';
+	import DocsNav from './DocsNav.svelte';
 	import Stage from './Stage.svelte';
 
 	let serverUrl = $state('');
@@ -26,7 +27,12 @@
 		style="background: radial-gradient(50% 50% at 50% 0%, rgb(255 62 0 / 0.18), transparent 70%);"
 	></div>
 
-	<!-- In-call experience: LiveKitRoom stays mounted so connecting works. -->
+	{#if !connected}
+		<DocsNav />
+	{/if}
+
+	<!-- In-call experience: LiveKitRoom stays mounted so connecting works. It renders as
+	     display:contents so its empty box doesn't reserve height before you connect. -->
 	<LiveKitRoom
 		{serverUrl}
 		{token}
@@ -36,7 +42,7 @@
 		onConnected={() => (status = 'connected')}
 		onDisconnected={() => (status = 'disconnected')}
 		onError={(e) => (status = `error: ${e.message}`)}
-		class="relative z-10 flex min-h-svh flex-1 flex-col"
+		class="contents"
 	>
 		{#if connected}
 			<!-- Top bar -->
@@ -67,7 +73,7 @@
 	<!-- Join screen -->
 	{#if !connected}
 		<div
-			class="relative z-10 flex min-h-svh flex-1 items-center justify-center p-4 sm:p-6"
+			class="relative z-10 flex flex-1 items-center justify-center p-4 sm:p-6"
 		>
 			<div
 				class="w-full max-w-md rounded-lk-lg border border-lk-border bg-lk-bg-2/90 p-6 shadow-lk-lg backdrop-blur-xl sm:p-8"
