@@ -96,6 +96,11 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Changelog — livekit-svelte</title>
+	<meta name="description" content="Notable features and changes in livekit-svelte." />
+</svelte:head>
+
 <DocsNav />
 
 <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">

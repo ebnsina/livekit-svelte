@@ -107,6 +107,11 @@ pnpm add -D svelte tailwindcss`;
 	];
 </script>
 
+<svelte:head>
+	<title>Docs — livekit-svelte</title>
+	<meta name="description" content="Getting started with livekit-svelte: installation, Tailwind setup, quick start, and the component reference." />
+</svelte:head>
+
 <DocsNav />
 
 <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">

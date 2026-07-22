@@ -1,8 +1,19 @@
 <script lang="ts">
 	import { LiveKitRoom, ConnectionState, RoomName } from '$lib/index.js';
 	import DocsNav from './DocsNav.svelte';
-	import Stage from './Stage.svelte';
 	import { generateDevToken } from './devToken.js';
+	import GridExample from './examples/GridExample.svelte';
+	import FocusExample from './examples/FocusExample.svelte';
+	import ChatExample from './examples/ChatExample.svelte';
+	import VoiceExample from './examples/VoiceExample.svelte';
+
+	const examples = [
+		{ key: 'grid', label: 'Grid' },
+		{ key: 'focus', label: 'Focus' },
+		{ key: 'chat', label: 'Chat' },
+		{ key: 'voice', label: 'Voice' }
+	] as const;
+	let example = $state<(typeof examples)[number]['key']>('grid');
 
 	let serverUrl = $state('');
 	let token = $state('');
@@ -84,13 +95,42 @@
 					</span>
 					<RoomName class="text-sm font-semibold tracking-tight text-lk-fg" />
 				</div>
+
+				<!-- Example switcher -->
+				<div
+					class="mx-auto flex items-center gap-1 overflow-x-auto rounded-full border border-lk-border bg-lk-bg-2/70 p-1"
+				>
+					{#each examples as ex (ex.key)}
+						<button
+							type="button"
+							onclick={() => (example = ex.key)}
+							class="rounded-full px-3 py-1 text-xs font-medium whitespace-nowrap transition {example ===
+							ex.key
+								? 'bg-lk-accent text-lk-accent-fg'
+								: 'text-lk-fg-secondary hover:text-lk-fg'}"
+						>
+							{ex.label}
+						</button>
+					{/each}
+				</div>
+
 				<ConnectionState
-					class="ml-auto rounded-full border border-lk-border bg-lk-bg-2 px-2.5 py-1 font-mono text-xs text-lk-fg-secondary"
+					class="hidden rounded-full border border-lk-border bg-lk-bg-2 px-2.5 py-1 font-mono text-xs text-lk-fg-secondary sm:block"
 				/>
 			</header>
 
-			<!-- Video stage + controls -->
-			<Stage />
+			<!-- Selected example -->
+			<div class="relative flex flex-1 flex-col">
+				{#if example === 'grid'}
+					<GridExample />
+				{:else if example === 'focus'}
+					<FocusExample />
+				{:else if example === 'chat'}
+					<ChatExample />
+				{:else if example === 'voice'}
+					<VoiceExample />
+				{/if}
+			</div>
 		{/if}
 	</LiveKitRoom>
 
