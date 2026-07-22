@@ -20,6 +20,21 @@ export {
 	getMaybeTrackRefContext,
 	ensureTrackRef
 } from './context/track-reference-context.js';
+export {
+	createLayoutContext,
+	setLayoutContext,
+	getLayoutContext,
+	getMaybeLayoutContext,
+	ensureLayoutContext,
+	type LayoutContextType
+} from './context/layout-context.svelte.js';
+export { pinReducer, type PinAction, type PinContextType } from './context/pin-context.js';
+export {
+	chatReducer,
+	type ChatContextAction,
+	type WidgetContextType
+} from './context/chat-context.js';
+export { setFeatureContext, getFeatureContext, type FeatureFlags } from './context/feature-context.js';
 
 // State factories (reactive helpers built on the core observables)
 export { createLiveKitRoom, type LiveKitRoomState } from './state/createLiveKitRoom.svelte.js';
@@ -96,6 +111,7 @@ export { default as ConnectionQualityIndicator } from './components/ConnectionQu
 export { default as ParticipantTile } from './components/ParticipantTile.svelte';
 export { default as ParticipantContextIfNeeded } from './components/ParticipantContextIfNeeded.svelte';
 export { default as TrackRefContextIfNeeded } from './components/TrackRefContextIfNeeded.svelte';
+export { default as LayoutContextProvider } from './components/LayoutContextProvider.svelte';
 export { default as VideoTrack } from './components/VideoTrack.svelte';
 export { default as AudioTrack } from './components/AudioTrack.svelte';
 export { default as RoomAudioRenderer } from './components/RoomAudioRenderer.svelte';
