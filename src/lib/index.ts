@@ -97,6 +97,7 @@ export { default as RoomAudioRenderer } from './components/RoomAudioRenderer.sve
 export { default as DisconnectButton } from './components/DisconnectButton.svelte';
 export { default as TrackToggle } from './components/TrackToggle.svelte';
 export { default as MediaDeviceSelect } from './components/MediaDeviceSelect.svelte';
+export { default as MediaDeviceMenu } from './components/MediaDeviceMenu.svelte';
 
 // Icons
 export { icons, getSourceIcon } from './icons/index.js';
