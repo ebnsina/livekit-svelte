@@ -31,6 +31,7 @@ export {
 	type CreateTracksOptions,
 	type CreateTracksReturnType
 } from './state/createTracks.svelte.js';
+export { createMediaTrack, type MediaTrackState } from './state/createMediaTrack.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -38,6 +39,7 @@ export type { LiveKitRoomProps } from './components/LiveKitRoom.types.js';
 export { default as ConnectionState } from './components/ConnectionState.svelte';
 export { default as RoomName } from './components/RoomName.svelte';
 export { default as ParticipantName } from './components/ParticipantName.svelte';
+export { default as VideoTrack } from './components/VideoTrack.svelte';
 
 // Re-exports from the framework-agnostic core
 export { setLogLevel, setLogExtension, isTrackReference } from '@livekit/components-core';
