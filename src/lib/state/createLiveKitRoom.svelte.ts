@@ -14,8 +14,8 @@ export interface LiveKitRoomState {
  * Creates and manages a LiveKit {@link Room}: constructs it, wires event handlers,
  * connects/disconnects, and publishes local tracks on connect.
  *
- * Svelte port of the React `useLiveKitRoom` hook. All lifecycle work happens inside
- * `$effect`, so nothing runs during SSR and everything is cleaned up on teardown.
+ * All lifecycle work happens inside `$effect`, so nothing runs during SSR and
+ * everything is cleaned up on teardown.
  *
  * @param getProps - accessor returning the current props (kept reactive by reading
  *   only the fields each effect needs).

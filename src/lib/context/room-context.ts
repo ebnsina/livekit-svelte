@@ -30,7 +30,7 @@ export function getRoomContext(): Room {
 
 /**
  * Resolve a {@link Room} either from an explicit argument or from context.
- * Mirrors `useEnsureRoom` in the React library.
+ * Useful for components that accept an optional `room` prop.
  */
 export function ensureRoom(room?: Room): Room {
 	const r = room ?? getMaybeRoomContext();

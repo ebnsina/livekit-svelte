@@ -9,7 +9,7 @@ export {
 	ensureRoom
 } from './context/room-context.js';
 
-// State factories (the Svelte equivalents of React hooks)
+// State factories (reactive helpers built on the core observables)
 export { createLiveKitRoom, type LiveKitRoomState } from './state/createLiveKitRoom.svelte.js';
 
 // Components

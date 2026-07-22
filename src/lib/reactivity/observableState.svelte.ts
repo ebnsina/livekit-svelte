@@ -12,12 +12,10 @@ export interface ObservableState<T> {
 /**
  * Bridges an RxJS `Observable` to a Svelte 5 rune.
  *
- * This is the Svelte equivalent of React's `useObservableState`. Every `setup*`
- * helper in `@livekit/components-core` exposes its state as an RxJS observable;
- * this adapter subscribes on mount and unsubscribes on teardown.
+ * Every `setup*` helper in `@livekit/components-core` exposes its state as an RxJS
+ * observable; this adapter subscribes on mount and unsubscribes on teardown.
  *
- * Must be called during component initialization (it registers an `$effect`),
- * mirroring the "call hooks at the top level" rule in React.
+ * Must be called during component initialization (it registers an `$effect`).
  *
  * @param observable - source observable (may be `undefined` — then value stays `startWith`)
  * @param startWith - initial value emitted synchronously before the first push

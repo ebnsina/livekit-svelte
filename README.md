@@ -1,18 +1,18 @@
 # @ebnsina/livekit-svelte
 
-LiveKit components for **Svelte 5** — a port of [`@livekit/components-react`](https://github.com/livekit/components-js) that gives Svelte apps the same components, state helpers, and prefabs for building realtime video, audio, and agent experiences.
+LiveKit components for **Svelte 5** — components, state helpers, and prefabs for building realtime video, audio, and agent experiences.
 
-It reuses LiveKit's framework‑agnostic [`@livekit/components-core`](https://www.npmjs.com/package/@livekit/components-core) (all the state logic lives there as RxJS observables) and reimplements only the binding layer in idiomatic Svelte 5 runes.
+It builds on LiveKit's official [`@livekit/components-core`](https://www.npmjs.com/package/@livekit/components-core) (state logic exposed as RxJS observables) and [`livekit-client`](https://www.npmjs.com/package/livekit-client), exposing them through idiomatic Svelte 5 runes, context, and snippets.
 
 > [!NOTE]
-> **Status: early / in development.** The foundation and the `LiveKitRoom` root are in place and verified; components, state factories, and prefabs are being ported phase by phase. See the [roadmap](#roadmap).
+> **Status: early / in development.** The foundation and the `LiveKitRoom` root are in place and verified; more components, state factories, and prefabs land phase by phase. See the [roadmap](#roadmap).
 
 ## Features
 
 - 🎯 **Svelte 5 native** — built on runes (`$state`/`$effect`), snippets, and context.
-- ♻️ **Powered by LiveKit core** — wraps `@livekit/components-core`, so behavior tracks the official library.
+- ♻️ **Powered by LiveKit core** — built on `@livekit/components-core`, so behavior tracks LiveKit itself.
 - 🎨 **Tailwind CSS v4** styling with themeable `--lk-*` design tokens.
-- 🧩 **Same DOM contract** — components emit the official `data-lk-*` attributes, so LiveKit theming knowledge carries over.
+- 🧩 **Standard DOM contract** — components emit `data-lk-*` attributes, so LiveKit theming carries over.
 - 🛡️ **Graceful error handling** — connection, token, media‑device, and stream errors are surfaced, never thrown into your app.
 - 🔤 **Fully typed** — ships `.d.ts` for every export.
 
@@ -78,14 +78,14 @@ Retheme by overriding any token, e.g.:
 
 ## Architecture
 
-The React library is a thin binding layer over `@livekit/components-core`, which exposes state as RxJS observables (`setup*()` helpers) plus pure functions. This port keeps that core and swaps only the bindings:
+`@livekit/components-core` holds all the state logic, exposed as RxJS observables (`setup*()` helpers) plus pure functions. This library is a thin, idiomatic Svelte binding layer over that core:
 
-| React                         | livekit-svelte                                             |
-| ----------------------------- | ---------------------------------------------------------- |
-| `createContext` / `useX`      | `setContext`/`getContext` (`context/`)                     |
-| `useObservableState(obs)`     | `observableState(obs, startWith)` — RxJS → rune (`reactivity/`) |
-| `useXxx` hooks                | `createXxx` factories (`state/`, Svelte naming)            |
-| `.tsx` components / prefabs   | `.svelte` components / prefabs                             |
+| Concern            | Implementation                                                  |
+| ------------------ | --------------------------------------------------------------- |
+| Sharing the room   | `setContext`/`getContext` helpers (`context/`)                  |
+| Observable → state | `observableState(obs, startWith)` — RxJS → rune (`reactivity/`) |
+| Stateful helpers   | `createXxx` factories (`state/`)                                |
+| UI                 | `.svelte` components and prefabs (`components/`, `prefabs/`)     |
 
 Because `.subscribe()` on an RxJS observable returns a `Subscription` (not a bare teardown function), observables can't be used with Svelte's `$store` syntax directly — `observableState` / `toReadable` adapt that contract.
 
