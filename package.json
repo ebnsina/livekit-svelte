@@ -1,6 +1,6 @@
 {
 	"name": "@ebnsina/livekit-svelte",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "LiveKit components for Svelte 5 — build realtime video, audio, and agent experiences.",
 	"license": "MIT",
 	"author": "ebnsina <ebnsina.me@gmail.com>",
