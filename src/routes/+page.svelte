@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { LiveKitRoom } from '$lib/index.js';
+	import { LiveKitRoom, ConnectionState, RoomName } from '$lib/index.js';
+	import Stage from './Stage.svelte';
 
 	let serverUrl = $state('');
 	let token = $state('');
@@ -48,6 +49,10 @@
 		onError={(e) => (status = `error: ${e.message}`)}
 		class="rounded-lk border border-lk-border p-4"
 	>
-		<p class="text-lk-fg-secondary">Room mounted. Track/participant components come next.</p>
+		<div class="mb-3 flex items-center gap-3 text-sm text-lk-fg-secondary">
+			<RoomName class="font-medium text-lk-fg" />
+			<ConnectionState class="rounded bg-lk-bg-2 px-2 py-0.5" />
+		</div>
+		<Stage />
 	</LiveKitRoom>
 </main>

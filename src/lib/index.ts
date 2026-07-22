@@ -40,6 +40,8 @@ export { default as ConnectionState } from './components/ConnectionState.svelte'
 export { default as RoomName } from './components/RoomName.svelte';
 export { default as ParticipantName } from './components/ParticipantName.svelte';
 export { default as VideoTrack } from './components/VideoTrack.svelte';
+export { default as TrackLoop } from './components/TrackLoop.svelte';
+export { default as TrackRefContextProvider } from './components/TrackRefContextProvider.svelte';
 
 // Re-exports from the framework-agnostic core
 export { setLogLevel, setLogExtension, isTrackReference } from '@livekit/components-core';

@@ -24,7 +24,7 @@
 		...rest
 	}: LiveKitRoomProps = $props();
 
-	const state = createLiveKitRoom(() => ({
+	const lk = createLiveKitRoom(() => ({
 		token,
 		serverUrl,
 		options,
@@ -43,11 +43,20 @@
 	}));
 
 	// Provide the room to descendants. Set synchronously at init (browser).
-	if (state.room) {
-		setRoomContext(state.room);
+	if (lk.room) {
+		setRoomContext(lk.room);
 	}
+
+	// The room and its tracks only exist in the browser. Render children after mount so
+	// server output (no room) and the initial hydration render match, then reveal the UI.
+	let mounted = $state(false);
+	$effect(() => {
+		mounted = true;
+	});
 </script>
 
-<div class={[state.className, className]} {...rest}>
-	{@render children?.()}
+<div class={[lk.className, className]} {...rest}>
+	{#if mounted && lk.room}
+		{@render children?.()}
+	{/if}
 </div>
