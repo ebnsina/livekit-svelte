@@ -1,5 +1,5 @@
 import type { Component } from 'svelte';
-import { Track } from 'livekit-client';
+import { ConnectionQuality, Track } from 'livekit-client';
 import Mic from '@lucide/svelte/icons/mic';
 import MicOff from '@lucide/svelte/icons/mic-off';
 import Video from '@lucide/svelte/icons/video';
@@ -11,6 +11,11 @@ import MessageSquare from '@lucide/svelte/icons/message-square';
 import ChevronDown from '@lucide/svelte/icons/chevron-down';
 import Maximize from '@lucide/svelte/icons/maximize';
 import Minimize from '@lucide/svelte/icons/minimize';
+import SignalHigh from '@lucide/svelte/icons/signal-high';
+import SignalMedium from '@lucide/svelte/icons/signal-medium';
+import SignalLow from '@lucide/svelte/icons/signal-low';
+import WifiOff from '@lucide/svelte/icons/wifi-off';
+import Signal from '@lucide/svelte/icons/signal';
 
 /**
  * Centralized icon set (backed by `@lucide/svelte`). Import icons from here so the
@@ -27,8 +32,29 @@ export const icons = {
 	MessageSquare,
 	ChevronDown,
 	Maximize,
-	Minimize
+	Minimize,
+	SignalHigh,
+	SignalMedium,
+	SignalLow,
+	WifiOff,
+	Signal
 } as const;
+
+/** Returns the icon component representing a participant's connection quality. */
+export function getConnectionQualityIcon(quality: ConnectionQuality): Component {
+	switch (quality) {
+		case ConnectionQuality.Excellent:
+			return SignalHigh;
+		case ConnectionQuality.Good:
+			return SignalMedium;
+		case ConnectionQuality.Poor:
+			return SignalLow;
+		case ConnectionQuality.Lost:
+			return WifiOff;
+		default:
+			return Signal;
+	}
+}
 
 /** Returns the icon component for a track source given its enabled state. */
 export function getSourceIcon(source: Track.Source, enabled: boolean): Component {

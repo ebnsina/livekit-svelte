@@ -67,6 +67,10 @@ export {
 	createTrackMutedIndicator,
 	type TrackMutedIndicatorState
 } from './state/createTrackMutedIndicator.svelte.js';
+export {
+	createConnectionQualityIndicator,
+	type ConnectionQualityIndicatorState
+} from './state/createConnectionQualityIndicator.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -75,6 +79,7 @@ export { default as ConnectionState } from './components/ConnectionState.svelte'
 export { default as RoomName } from './components/RoomName.svelte';
 export { default as ParticipantName } from './components/ParticipantName.svelte';
 export { default as TrackMutedIndicator } from './components/TrackMutedIndicator.svelte';
+export { default as ConnectionQualityIndicator } from './components/ConnectionQualityIndicator.svelte';
 export { default as VideoTrack } from './components/VideoTrack.svelte';
 export { default as AudioTrack } from './components/AudioTrack.svelte';
 export { default as RoomAudioRenderer } from './components/RoomAudioRenderer.svelte';
