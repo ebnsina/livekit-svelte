@@ -107,6 +107,7 @@ export {
 	type PersistentUserChoicesState
 } from './state/createPersistentUserChoices.svelte.js';
 export { createSettingsToggle, type SettingsToggleState } from './state/createSettingsToggle.svelte.js';
+export { createMediaQuery } from './state/createMediaQuery.svelte.js';
 // Participant / track data factories
 export {
 	createRemoteParticipant,
@@ -223,6 +224,7 @@ export { default as ConnectionStateToast } from './components/ConnectionStateToa
 
 // Prefabs
 export { default as Chat } from './prefabs/Chat.svelte';
+export { default as ControlBar, type ControlBarControls } from './prefabs/ControlBar.svelte';
 
 // Icons
 export { icons, getSourceIcon } from './icons/index.js';
