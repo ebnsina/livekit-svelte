@@ -42,6 +42,15 @@ export {
 	type CreateTrackToggleProps,
 	type TrackToggleState
 } from './state/createTrackToggle.svelte.js';
+export {
+	createMediaDevices,
+	type CreateMediaDevicesProps
+} from './state/createMediaDevices.svelte.js';
+export {
+	createMediaDeviceSelect,
+	type CreateMediaDeviceSelectProps,
+	type MediaDeviceSelectState
+} from './state/createMediaDeviceSelect.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -54,6 +63,7 @@ export { default as AudioTrack } from './components/AudioTrack.svelte';
 export { default as RoomAudioRenderer } from './components/RoomAudioRenderer.svelte';
 export { default as DisconnectButton } from './components/DisconnectButton.svelte';
 export { default as TrackToggle } from './components/TrackToggle.svelte';
+export { default as MediaDeviceSelect } from './components/MediaDeviceSelect.svelte';
 
 // Icons
 export { icons, getSourceIcon } from './icons/index.js';
