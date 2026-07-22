@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { LiveKitRoom, ConnectionState, RoomName } from '$lib/index.js';
+	import { LiveKitRoom, ConnectionState, RoomName, VideoConference } from '$lib/index.js';
 	import DocsNav from './DocsNav.svelte';
 	import { generateDevToken } from './devToken.js';
 	import GridExample from './examples/GridExample.svelte';
@@ -11,7 +11,8 @@
 		{ key: 'grid', label: 'Grid' },
 		{ key: 'focus', label: 'Focus' },
 		{ key: 'chat', label: 'Chat' },
-		{ key: 'voice', label: 'Voice' }
+		{ key: 'voice', label: 'Voice' },
+		{ key: 'prefab', label: 'Prefab' }
 	] as const;
 	let example = $state<(typeof examples)[number]['key']>('grid');
 
@@ -129,6 +130,8 @@
 					<ChatExample />
 				{:else if example === 'voice'}
 					<VoiceExample />
+				{:else if example === 'prefab'}
+					<VideoConference />
 				{/if}
 			</div>
 		{/if}

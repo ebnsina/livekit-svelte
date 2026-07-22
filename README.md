@@ -66,6 +66,12 @@ The library is styled with Tailwind v4 utilities plus `--lk-*` theme tokens. Add
 @import '@ebnsina/livekit-svelte/styles.css';
 ```
 
+Want the prefabs and components (`VideoConference`, `ControlBar`, `Chat`, …) polished out-of-the-box? Also import the optional baseline theme, which styles every `lk-*` class using the same tokens:
+
+```css
+@import '@ebnsina/livekit-svelte/components.css';
+```
+
 Retheme by overriding any token, e.g.:
 
 ```css

@@ -7,6 +7,10 @@
    shadows, font families; the token file self-registers its @source). */
 @import '../lib/styles/livekit-svelte.css';
 
+/* Optional baseline component theme — styles every lk-* class so the prefabs
+   (VideoConference, ControlBar, Chat, …) render polished out-of-the-box. */
+@import '../lib/styles/components.css';
+
 /* Make Mona Sans the default UI font and refine base rendering. */
 @layer base {
 	html {

@@ -43,7 +43,8 @@
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
 		},
-		"./styles.css": "./dist/styles/livekit-svelte.css"
+		"./styles.css": "./dist/styles/livekit-svelte.css",
+		"./components.css": "./dist/styles/components.css"
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0",

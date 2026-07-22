@@ -176,6 +176,16 @@ pnpm add -D svelte tailwindcss`;
 		</p>
 		<pre
 			class="mt-3 overflow-x-auto rounded-lk border border-lk-border bg-lk-bg-2 p-4 font-mono text-sm text-lk-fg-secondary">{theming}</pre>
+		<p class="mt-4 text-sm leading-relaxed text-lk-fg-secondary">
+			Want the prefabs and components polished out-of-the-box? Also import the optional
+			baseline theme — it styles every <code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm">lk-*</code>
+			class using the same tokens, so <code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm"
+				>VideoConference</code
+			>, <code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm">ControlBar</code>,
+			<code class="rounded bg-lk-bg-3 px-1 py-0.5 font-mono text-sm">Chat</code> and friends look great with zero extra work.
+		</p>
+		<pre
+			class="mt-3 overflow-x-auto rounded-lk border border-lk-border bg-lk-bg-2 p-4 font-mono text-sm text-lk-fg-secondary">@import '@ebnsina/livekit-svelte/components.css';</pre>
 	</section>
 
 	<!-- Quick start -->
