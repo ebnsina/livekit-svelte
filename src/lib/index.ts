@@ -101,6 +101,12 @@ export {
 } from './state/createParticipantTile.svelte.js';
 export { createFocusToggle, type FocusToggleState } from './state/createFocusToggle.svelte.js';
 export { createClearPinButton, type ClearPinButtonState } from './state/createClearPinButton.svelte.js';
+export {
+	createPersistentUserChoices,
+	type CreatePersistentUserChoicesOptions,
+	type PersistentUserChoicesState
+} from './state/createPersistentUserChoices.svelte.js';
+export { createSettingsToggle, type SettingsToggleState } from './state/createSettingsToggle.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -123,6 +129,7 @@ export { default as MediaDeviceSelect } from './components/MediaDeviceSelect.sve
 export { default as MediaDeviceMenu } from './components/MediaDeviceMenu.svelte';
 export { default as FocusToggle } from './components/FocusToggle.svelte';
 export { default as ClearPinButton } from './components/ClearPinButton.svelte';
+export { default as SettingsMenuToggle } from './components/SettingsMenuToggle.svelte';
 
 // Icons
 export { icons, getSourceIcon } from './icons/index.js';
