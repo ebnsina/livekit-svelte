@@ -51,6 +51,18 @@ export {
 	type CreateMediaDeviceSelectProps,
 	type MediaDeviceSelectState
 } from './state/createMediaDeviceSelect.svelte.js';
+export {
+	createLocalParticipant,
+	type LocalParticipantState
+} from './state/createLocalParticipant.svelte.js';
+export {
+	createRemoteParticipants,
+	type CreateRemoteParticipantsOptions
+} from './state/createRemoteParticipants.svelte.js';
+export {
+	createParticipants,
+	type CreateParticipantsOptions
+} from './state/createParticipants.svelte.js';
 
 // Components
 export { default as LiveKitRoom } from './components/LiveKitRoom.svelte';
@@ -69,6 +81,8 @@ export { default as MediaDeviceSelect } from './components/MediaDeviceSelect.sve
 export { icons, getSourceIcon } from './icons/index.js';
 export { default as TrackLoop } from './components/TrackLoop.svelte';
 export { default as TrackRefContextProvider } from './components/TrackRefContextProvider.svelte';
+export { default as ParticipantLoop } from './components/ParticipantLoop.svelte';
+export { default as ParticipantContextProvider } from './components/ParticipantContextProvider.svelte';
 
 // Re-exports from the framework-agnostic core
 export { setLogLevel, setLogExtension, isTrackReference } from '@livekit/components-core';
